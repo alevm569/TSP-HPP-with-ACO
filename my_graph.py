@@ -1,3 +1,4 @@
+import sys
 import lxml.etree
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -28,7 +29,7 @@ def read_graph(file):
     default_ns = list(filter(lambda x: "http://graphml.graphdrawing.org/xmlns" in x[1], name_space.items()))
     #Validations to namespaces/URI
     if len(default_ns) < 1:
-        print(f"{input_file} does not contain the default graphml namespace")
+        print(f"{file} does not contain the default graphml namespace")
         sys.exit(1)
     # If the default namespace has a name, use it, otherwise, assign a generic name to it
     if default_ns[0][0] is not None:
